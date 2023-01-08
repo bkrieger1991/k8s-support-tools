@@ -201,7 +201,7 @@ public class ValidateConfigMapSchema : ICommand
         {
             _logger.LogTrace($"Got json-data path: {jsonDataPath}");
             _logger.LogTrace($"Thus, we extract a json-schema from a json-file");
-            return await _jsonSchemaReader.ReadSchemaFromJsonData(GetAbsolutePath(configMapResource, jsonDataPath));
+            return await _jsonSchemaReader.ReadSchemaFromSampleJson(GetAbsolutePath(configMapResource, jsonDataPath));
         }
 
         if (jsonSchemaPath != null)

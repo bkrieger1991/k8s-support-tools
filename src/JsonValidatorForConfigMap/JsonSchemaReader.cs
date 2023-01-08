@@ -16,7 +16,7 @@ public class JsonSchemaReader
         _logger = logger;
     }
 
-    public async Task<JsonSchema> ReadSchemaFromJsonData(string filepath)
+    public async Task<JsonSchema> ReadSchemaFromSampleJson(string filepath)
     {
         CheckFileAndThrow(filepath);
 
@@ -25,6 +25,8 @@ public class JsonSchemaReader
         schema.AllowAdditionalItems = false;
         schema.AllowAdditionalProperties = false;
         schema.IsExclusiveMinimum = true;
+
+        _logger.LogDebug("Successful read sample-json and extracted schema");
 
         ToggleAllPropertiesRequired(schema);
 
@@ -41,6 +43,7 @@ public class JsonSchemaReader
     {
         foreach (var prop in schema.ActualProperties)
         {
+            _logger.LogInformation($"Toggled property '{prop.Key}' to be required");
             schema.RequiredProperties.Add(prop.Key);
             // Recursive call toggle method with schema of
             // property, to set all child props to be required
