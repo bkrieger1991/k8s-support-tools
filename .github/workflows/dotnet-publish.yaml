@@ -11,7 +11,7 @@ jobs:
         dotnet-version: 6.0.x
 
     - name: Publish cross-platform application files
-      run: dotnet publish --self-contained true src/JsonValidatorForConfigMap/JsonValidatorForConfigMap.csproj -o ./publish/cross-platform
+      run: dotnet publish --self-contained false src/JsonValidatorForConfigMap/JsonValidatorForConfigMap.csproj -o ./publish/cross-platform
     - name: Copy readme instructions
       run: cp src/JsonValidatorForConfigMap/release-readme.md publish/cross-platform/Readme.md
     
