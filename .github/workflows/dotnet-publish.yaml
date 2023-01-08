@@ -27,7 +27,7 @@ jobs:
       with:
         name: published-files
         path: ./publish/
-  push-cross-platform:
+  push-release:
     needs: build-and-publish
     runs-on: ubuntu-latest
     steps:
