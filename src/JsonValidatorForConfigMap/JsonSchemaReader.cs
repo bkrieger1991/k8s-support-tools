@@ -22,12 +22,10 @@ public class JsonSchemaReader
 
         var jsonContent = await File.ReadAllTextAsync(filepath);
         var schema = JsonSchema.FromSampleJson(jsonContent);
-        schema.AllowAdditionalItems = false;
-        schema.AllowAdditionalProperties = false;
         schema.IsExclusiveMinimum = true;
 
         _logger.LogDebug("Successful read sample-json and extracted schema");
-
+        ToggleForbiddenAdditionalsInAllDefinitions(schema);
         ToggleAllPropertiesRequired(schema);
 
         return schema;
@@ -39,15 +37,34 @@ public class JsonSchemaReader
         return await JsonSchema.FromFileAsync(filepath);
     }
 
+    private void ToggleForbiddenAdditionalsInAllDefinitions(JsonSchema schema)
+    {
+        schema.AllowAdditionalProperties = false;
+        schema.AllowAdditionalItems = false;
+        foreach (var definition in schema.Definitions)
+        {
+            _logger.LogInformation($"Toggle additional properties to be forbidden for definition '{definition.Key}'");
+            ToggleForbiddenAdditionalsInAllDefinitions(definition.Value);
+        }
+    }
+
     private void ToggleAllPropertiesRequired(JsonSchema schema)
     {
         foreach (var prop in schema.ActualProperties)
         {
-            _logger.LogInformation($"Toggled property '{prop.Key}' to be required");
+            _logger.LogInformation($"Toggle property '{prop.Key}' to be required");
             schema.RequiredProperties.Add(prop.Key);
             // Recursive call toggle method with schema of
             // property, to set all child props to be required
             ToggleAllPropertiesRequired(prop.Value.ActualSchema);
+        }
+
+        foreach (var definition in schema.Definitions)
+        {
+            _logger.LogInformation($"Toggle each property to 'required' for definition of '{definition.Key}'");
+            definition.Value.ActualProperties.Keys
+                .ToList()
+                .ForEach(definition.Value.ActualSchema.RequiredProperties.Add);
         }
     }
     

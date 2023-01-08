@@ -152,7 +152,7 @@ public class ValidateConfigMapSchema : ICommand
     /// </summary>
     /// <param name="validationResult"></param>
     /// <returns></returns>
-    private async Task OutputValidationResult(ICollection<ValidationError> validationResult)
+    private async Task OutputValidationResult(ICollection<ValidationError> validationResult, bool nested = false)
     {
         foreach (var error in validationResult)
         {
@@ -166,9 +166,17 @@ public class ValidateConfigMapSchema : ICommand
             var behavior = behaviorConfig?.Behavior ?? ValidationBehavior.Error;
 
             await HandleMessageByBehavior(
-                $"Validation Error: {error.Kind} - {error.Path}, Line: {error.LineNumber}",
+                $"{(nested ? "==> " : "")}Validation Error: {error.Kind} - {error.Path}, Line: {error.LineNumber}",
                 behavior
             );
+
+            if (error is ChildSchemaValidationError child && child.Errors.Count > 0)
+            {
+                foreach (var childValidationErrors in child.Errors.Values)
+                {
+                    await OutputValidationResult(childValidationErrors, true);
+                }
+            }
         }
     }
 
