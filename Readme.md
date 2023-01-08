@@ -16,7 +16,9 @@ Json-schema or json-sample files just has to be referenced by configurable annot
 The validation rules can also be fine-tuned by configuration. The json-schema validation uses the NuGet package `NJsonSchema`.
 
 ## Download
-### TBD
+Download the latest release according to your environment preferences from:
+
+### [Release Package Downloads](https://github.com/bkrieger1991/k8s-support-tools/tree/releases)
 
 ## Usage
 Before running the tool and validating your ConfigMap files against json-schema definitions or sample-json files, you have to set the correct **annotations** in your ConfigMap files.
@@ -133,6 +135,14 @@ Set the commandline parameters to
 ```
 validate-configmaps --root-path "path/to/a/sample/directory"
 ``` 
+
+### Contribution
+If you like to contribute you may just create a pullrequest into the `main` branch. 
+
+If you have any questions, just contact me.
+
+### Support
+If you like this tool, i would really appreciate it, if you follow me or give the repo a star :)
 
 ## Full Tool-Configuration Example
 It also includes all available validation error behavior configurations:
