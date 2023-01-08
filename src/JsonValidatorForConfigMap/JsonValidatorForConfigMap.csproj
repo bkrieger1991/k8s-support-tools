@@ -3,13 +3,29 @@
   <PropertyGroup>
     <!-- Version value defines the name of the created release-zip file -->
     <Version>1.0.0</Version>
-    
+
     <OutputType>exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>preview</LangVersion>
+    <AssemblyName>configmap-json-validator</AssemblyName>
+    <Title>Json-Validator for ConfigMap</Title>
+    <Authors>Benjamin Krieger</Authors>
+    <Product>Kubernetes-Support-Tools - JsonValidatorForConfigMap</Product>
+    <Description>A CLI tool to validate json-data in ConfigMap files by providing either a schema or a sample-json file</Description>
+    <PackageProjectUrl>https://github.com/bkrieger1991/k8s-support-tools</PackageProjectUrl>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/bkrieger1991/k8s-support-tools</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\Readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="CliFx" Version="2.3.1" />
