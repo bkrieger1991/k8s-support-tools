@@ -63,7 +63,9 @@ jobs:
         ref: releases
         path: repo
     - name: Copy archive
-      run: cp JsonValidatorForConfigMap*.zip repo/
+      run: cp files/cross-platform/JsonValidatorForConfigMap*.zip repo/
+    - name: Copy archive
+      run: cp files/win-x64/JsonValidatorForConfigMap*.zip repo/
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3
       with:
