@@ -1,0 +1,12 @@
+﻿{
+	"ExampleString": "foo",
+	"Nested": {
+		"NestedInt": 123,
+		"NestedBool": true
+	},
+	"Array": [
+		{
+			"ArrayObjString": "bar"
+		}
+	]
+}
