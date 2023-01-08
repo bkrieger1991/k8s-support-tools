@@ -27,7 +27,7 @@ jobs:
       with:
         name: published-files
         path: ./publish/
-  push-cross-platform:
+  push-release:
     needs: build-and-publish
     runs-on: ubuntu-latest
     steps:
@@ -55,7 +55,7 @@ jobs:
       run: zip -qq -r JsonValidatorForConfigMap-${{ steps.version.outputs.version }}.zip *
       working-directory: files/cross-platform
     - name: Pack published win-x64 files
-      run: zip -qq -r JsonValidatorForConfigMap-win-x64-${{ steps.version.outputs.version }}.zip *
+      run: zip -qq -r JsonValidatorForConfigMap-${{ steps.version.outputs.version }}-win-x64.zip *
       working-directory: files/win-x64
     - uses: actions/checkout@v2
       name: Checkout releases branch
