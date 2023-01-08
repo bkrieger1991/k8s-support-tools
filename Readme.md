@@ -71,8 +71,10 @@ data:
 ```
 
 ### Tool-Configuration
-The tool-configuration is very flexible. Here is an example of the configuration:
-```json
+The tool-configuration is very flexible. Just edit the configuration to fit your needs. The configuration is contained in the file `json-schema-validator.json`
+
+Here is an example of the configuration:
+```jsonc
 {
 	"SampleJsonFilePathAnnotationName": "k8s-support-tools/sample-json-path",
 	"JsonSchemaPathAnnotationName": "k8s-support-tools/json-schema-path",
