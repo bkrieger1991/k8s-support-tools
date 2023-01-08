@@ -1,4 +1,4 @@
-name: Publish New Version
+name: Publish Release Package
 on: workflow_dispatch
 jobs:
   build-and-publish:

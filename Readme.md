@@ -1,3 +1,6 @@
+[![Build & Test](https://github.com/bkrieger1991/k8s-support-tools/actions/workflows/dotnet-build.yaml/badge.svg)](https://github.com/bkrieger1991/k8s-support-tools/actions/workflows/dotnet-build.yaml)
+[![Publish Release Package](https://github.com/bkrieger1991/k8s-support-tools/actions/workflows/dotnet-publish.yaml/badge.svg)](https://github.com/bkrieger1991/k8s-support-tools/actions/workflows/dotnet-publish.yaml)
+
 # Kubernetes Support Tools
 This repository is meant to be a collection of useful tools to simplify the development-workflow of applications hosted in kubernetes
 > Currently there is just one CLI tool to validate json-data in ConfigMap files. Continue reading :)
