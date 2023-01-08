@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonValidatorForConfigMap", "JsonValidatorForConfigMap\JsonValidatorForConfigMap.csproj", "{BCF6B2FF-BE37-4F46-BBD3-9E2A9DE73138}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonValidatorForConfigMap", "src\JsonValidatorForConfigMap\JsonValidatorForConfigMap.csproj", "{BCF6B2FF-BE37-4F46-BBD3-9E2A9DE73138}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
