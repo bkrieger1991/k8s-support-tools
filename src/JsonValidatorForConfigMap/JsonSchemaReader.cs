@@ -40,11 +40,17 @@ public class JsonSchemaReader
     private void ToggleForbiddenAdditionalsInAllDefinitions(JsonSchema schema)
     {
         schema.AllowAdditionalProperties = false;
-        schema.AllowAdditionalItems = false;
+
         foreach (var definition in schema.Definitions)
         {
-            _logger.LogInformation($"Toggle additional properties to be forbidden for definition '{definition.Key}'");
+            _logger.LogInformation($"Toggle additional properties and items to be forbidden for definition '{definition.Key}'");
             ToggleForbiddenAdditionalsInAllDefinitions(definition.Value);
+        }
+
+        foreach (var property in schema.ActualProperties)
+        {
+            _logger.LogInformation($"Toggle additional properties and items to be forbidden for property '{property.Key}'");
+            ToggleForbiddenAdditionalsInAllDefinitions(property.Value.ActualSchema);
         }
     }
 
@@ -54,14 +60,14 @@ public class JsonSchemaReader
         {
             _logger.LogInformation($"Toggle property '{prop.Key}' to be required");
             schema.RequiredProperties.Add(prop.Key);
-            // Recursive call toggle method with schema of
-            // property, to set all child props to be required
-            ToggleAllPropertiesRequired(prop.Value.ActualSchema);
         }
 
         foreach (var definition in schema.Definitions)
         {
-            _logger.LogInformation($"Toggle each property to 'required' for definition of '{definition.Key}'");
+            _logger.LogInformation($"Toggle properties in definition '{definition.Key}'...");
+            
+            // Recursive call toggle method with schemas of each definition,
+            // to set all child props to be required
             definition.Value.ActualProperties.Keys
                 .ToList()
                 .ForEach(definition.Value.ActualSchema.RequiredProperties.Add);
