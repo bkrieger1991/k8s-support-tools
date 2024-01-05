@@ -49,11 +49,6 @@ public static class Program
             Configuration.ConfigurationFileName
         );
 
-        //if (Environment.GetEnvironmentVariable("USE_DEVELOPMENT_CONFIG") == "1")
-        //{
-        //    configFile = "development-config.json";
-        //}
-
         if (File.Exists(configFile))
         {
             var json = await File.ReadAllTextAsync(configFile);

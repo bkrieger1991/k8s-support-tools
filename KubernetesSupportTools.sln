@@ -9,7 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E6541D95-310
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{3E44463D-34B6-448A-8651-7A6FFADA51AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonValidatorForConfigMap.Test", "test\JsonValidatorForConfigMap.Test\JsonValidatorForConfigMap.Test.csproj", "{305D10B7-A87C-4DDF-973E-D1B213D781ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonValidatorForConfigMap.Test", "test\JsonValidatorForConfigMap.Test\JsonValidatorForConfigMap.Test.csproj", "{305D10B7-A87C-4DDF-973E-D1B213D781ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManifestGenerator", "src\ManifestGenerator\ManifestGenerator.csproj", "{EF35A9F6-3F78-4694-B437-0CFD895E0C99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{305D10B7-A87C-4DDF-973E-D1B213D781ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{305D10B7-A87C-4DDF-973E-D1B213D781ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{305D10B7-A87C-4DDF-973E-D1B213D781ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF35A9F6-3F78-4694-B437-0CFD895E0C99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF35A9F6-3F78-4694-B437-0CFD895E0C99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF35A9F6-3F78-4694-B437-0CFD895E0C99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF35A9F6-3F78-4694-B437-0CFD895E0C99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{BCF6B2FF-BE37-4F46-BBD3-9E2A9DE73138} = {E6541D95-310B-4CCD-898D-810DA8D950EF}
 		{305D10B7-A87C-4DDF-973E-D1B213D781ED} = {3E44463D-34B6-448A-8651-7A6FFADA51AB}
+		{EF35A9F6-3F78-4694-B437-0CFD895E0C99} = {E6541D95-310B-4CCD-898D-810DA8D950EF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B94C9F00-199D-4D1F-9507-D0DF00C6E47B}
